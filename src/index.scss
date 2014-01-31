@@ -59,6 +59,11 @@ body {
 	height: 32px;
 }
 
+.github:hover {
+	background-color: white;
+	@include border-radius(4rem);
+}
+
 @media (min-width: 600px) {
 	body {
 		max-width: ($largeSize) * $columns;
