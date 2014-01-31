@@ -25,7 +25,12 @@ body {
   color: white;
   display: inline-block;
   cursor: pointer;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  border-radius: 0.5rem; }
 
 .start:hover {
   background-color: #b84141; }
