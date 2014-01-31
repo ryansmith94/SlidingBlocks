@@ -14,7 +14,8 @@ body {
   .row .col {
     width: 33%;
     height: 100%;
-    display: inline-block; }
+    display: inline-block;
+    cursor: pointer; }
 
 .start {
   background-color: #c86464;
