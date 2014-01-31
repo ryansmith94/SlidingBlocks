@@ -35,6 +35,14 @@ body {
 .start:hover {
   background-color: #b84141; }
 
+.github {
+  text-decoration: none;
+  margin-top: 1rem;
+  display: inline-block;
+  background-image: url("images/github.png");
+  width: 32px;
+  height: 32px; }
+
 @media (min-width: 600px) {
   body {
     max-width: 27rem; }
