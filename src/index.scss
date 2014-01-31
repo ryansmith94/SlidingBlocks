@@ -3,7 +3,6 @@ $largeSize: $smallSize + 2rem;
 $columns: 3;
 $startColour: rgba(200, 100, 100, 1);
 
-
 html {
 	background-color: rgba(230, 230, 230, 1)
 }
@@ -38,7 +37,7 @@ body {
 }
 
 .start:hover {
-	background-color: darken($startColour, 10%);	
+	background-color: darken($startColour, 10%);
 }
 
 @media (min-width: 600px) {

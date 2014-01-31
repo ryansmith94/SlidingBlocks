@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
     'use strict';
     var cwd = 'src';
-    var buildDir = 'build';
+    var buildDir = 'dist';
 
     // Project configuration.
     grunt.initConfig({
@@ -71,6 +71,12 @@ module.exports = function (grunt) {
                     spawn: false
                 }
             }
+        },
+        'gh-pages': {
+            options: {
+                base: buildDir
+            },
+            src: '**/*'
         }
     });
 
@@ -79,6 +85,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jade');
+    grunt.loadNpmTasks('grunt-gh-pages');
 
     // Tasks.
     grunt.registerTask('default', ['sass', 'jade', 'coffee']);

@@ -1,4 +1,3 @@
-- var path = '../'
 link(href="index.css", rel="stylesheet")
 
 h1 Sliding Blocks Puzzle
@@ -9,9 +8,9 @@ p Press the start button, then click on the tiles to try solving the puzzle and 
 mixin row(n)
 	- var n = n * 3
 	.row
-		img.col(id='cell' + n, class=['pic' + n], src=path + 'images/flower' + (n++) + '.png')
-		img.col(id='cell' + n, class=['pic' + n], src=path + 'images/flower' + (n++) + '.png')
-		img.col(id='cell' + n, class=['pic' + n], src=path + 'images/flower' + (n++) + '.png')
+		img.col(id='cell' + n, class=['pic' + n], src='images/flower' + (n++) + '.png')
+		img.col(id='cell' + n, class=['pic' + n], src='images/flower' + (n++) + '.png')
+		img.col(id='cell' + n, class=['pic' + n], src='images/flower' + (n++) + '.png')
 
 .grid
 	+row(0)
