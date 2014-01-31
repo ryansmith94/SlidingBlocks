@@ -1,0 +1,51 @@
+$smallSize: 7rem;
+$largeSize: $smallSize + 2rem;
+$columns: 3;
+$startColour: rgba(200, 100, 100, 1);
+
+
+html {
+	background-color: rgba(230, 230, 230, 1)
+}
+
+body {
+	font-family: sans-serif;
+	max-width: $smallSize * $columns;
+	text-align: center;
+	margin: 1rem auto;
+}
+
+.row {
+	width: 100%;
+	height: $smallSize;
+	font-size: 0;
+	.col {
+		width: 33%;
+		height: 100%;
+		display: inline-block;
+	}
+}
+
+.start {
+	background-color: $startColour;
+	width: auto;
+	height: auto;
+	padding: 0.7rem 1.8rem;
+	color: white;
+	display: inline-block;
+	cursor: pointer;
+	margin-bottom: 1rem;
+}
+
+.start:hover {
+	background-color: darken($startColour, 10%);	
+}
+
+@media (min-width: 600px) {
+	body {
+		max-width: ($largeSize) * $columns;
+		.row {
+			height: ($largeSize)
+		}
+	}
+}
