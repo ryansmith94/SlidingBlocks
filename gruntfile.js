@@ -21,8 +21,7 @@ module.exports = function (grunt) {
                         return !ignore[filepath.split('/').pop()];
                     }
                 }]
-            },
-            all: {}
+            }
         },
         jade: {
             options: {
@@ -36,8 +35,7 @@ module.exports = function (grunt) {
                     dest: buildDir,
                     ext: '.html'
                 }]
-            },
-            all: {}
+            }
         },
         coffee: {
             build: {
@@ -46,8 +44,7 @@ module.exports = function (grunt) {
                 src: ['**/*.coffee'],
                 dest: buildDir,
                 ext: '.js'
-            },
-            all: {}
+            }
         },
         watch: {
             sass: {
@@ -89,4 +86,5 @@ module.exports = function (grunt) {
 
     // Tasks.
     grunt.registerTask('default', ['sass', 'jade', 'coffee']);
+    grunt.registerTask('dist', ['default', 'gh-pages']);
 };
