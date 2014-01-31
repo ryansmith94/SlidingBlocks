@@ -1,0 +1,36 @@
+html {
+  background-color: #e6e6e6; }
+
+body {
+  font-family: sans-serif;
+  max-width: 21rem;
+  text-align: center;
+  margin: 1rem auto; }
+
+.row {
+  width: 100%;
+  height: 7rem;
+  font-size: 0; }
+  .row .col {
+    width: 33%;
+    height: 100%;
+    display: inline-block; }
+
+.start {
+  background-color: #c86464;
+  width: auto;
+  height: auto;
+  padding: 0.7rem 1.8rem;
+  color: white;
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 1rem; }
+
+.start:hover {
+  background-color: #b84141; }
+
+@media (min-width: 600px) {
+  body {
+    max-width: 27rem; }
+    body .row {
+      height: 9rem; } }
