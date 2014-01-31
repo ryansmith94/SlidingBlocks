@@ -7,17 +7,16 @@ col = (pos) -> pos % 3
 row = (pos) -> (pos - col(pos)) / 3
 swap = (j, k) -> [cells[j], cells[k]] = [cells[k], cells[j]]
 
-shuffle = () ->
-    for n in [0..8]
-        random = Math.floor(Math.random() * 9) 
-        swap(n, random)
-        if random is gapLoc
-            gapLoc = n
-        else if n is gapLoc
-            gapLoc = random
+shuffle = (n) ->
+    random = Math.floor(Math.random() * 9)
+    swap(n, random)
+    if random is gapLoc
+        gapLoc = n
+    else if n is gapLoc
+        gapLoc = random
 
 startGame = () ->
-    shuffle()
+    shuffle(n) for n in [0..8]
     updateImage(c) for c in [0..8]
     shuffled = true
 
