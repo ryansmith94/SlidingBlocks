@@ -50,6 +50,15 @@ body {
 	background-color: darken($startColour, 10%);
 }
 
+.github {
+	text-decoration: none;
+	margin-top: 1rem;
+	display: inline-block;
+	background-image: url("images/github.png");
+	width: 32px;
+	height: 32px;
+}
+
 @media (min-width: 600px) {
 	body {
 		max-width: ($largeSize) * $columns;

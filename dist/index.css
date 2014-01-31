@@ -26,14 +26,22 @@ body {
   display: inline-block;
   cursor: pointer;
   margin-bottom: 1rem;
-  -webkit-border-radius: 0.3rem;
-  -moz-border-radius: 0.3rem;
-  -ms-border-radius: 0.3rem;
-  -o-border-radius: 0.3rem;
-  border-radius: 0.3rem; }
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  border-radius: 0.5rem; }
 
 .start:hover {
   background-color: #b84141; }
+
+.github {
+  text-decoration: none;
+  margin-top: 1rem;
+  display: inline-block;
+  background-image: url("images/github.png");
+  width: 32px;
+  height: 32px; }
 
 @media (min-width: 600px) {
   body {
