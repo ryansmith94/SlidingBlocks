@@ -1,7 +1,5 @@
 (function() {
-  var canMoveTile, cells, col, gapLoc, moveTile, path, row, shuffle, shuffled, startGame, swap, updateImage;
-
-  path = '../';
+  var canMoveTile, cells, col, gapLoc, moveTile, row, shuffle, shuffled, startGame, swap, updateImage;
 
   cells = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -10,7 +8,7 @@
   shuffled = false;
 
   updateImage = function(pos) {
-    return document.getElementById("cell" + pos).src = "" + path + "images/flower" + cells[pos] + ".png";
+    return document.getElementById("cell" + pos).src = "images/flower" + cells[pos] + ".png";
   };
 
   col = function(pos) {
