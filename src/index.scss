@@ -3,6 +3,14 @@ $largeSize: $smallSize + 2rem;
 $columns: 3;
 $startColour: rgba(200, 100, 100, 1);
 
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
 html {
 	background-color: rgba(230, 230, 230, 1)
 }
@@ -35,6 +43,7 @@ body {
 	display: inline-block;
 	cursor: pointer;
 	margin-bottom: 1rem;
+	@include border-radius(0.5rem);
 }
 
 .start:hover {
