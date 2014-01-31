@@ -43,6 +43,14 @@ body {
   width: 32px;
   height: 32px; }
 
+.github:hover {
+  background-color: white;
+  -webkit-border-radius: 4rem;
+  -moz-border-radius: 4rem;
+  -ms-border-radius: 4rem;
+  -o-border-radius: 4rem;
+  border-radius: 4rem; }
+
 @media (min-width: 600px) {
   body {
     max-width: 27rem; }
