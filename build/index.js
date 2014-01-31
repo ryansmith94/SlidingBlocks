@@ -1,5 +1,7 @@
 (function() {
-  var canMoveTile, cells, col, gapLoc, moveTile, row, shuffle, shuffled, startGame, swap, updateImage;
+  var canMoveTile, cells, col, gapLoc, moveTile, path, row, shuffle, shuffled, startGame, swap, updateImage;
+
+  path = '../';
 
   cells = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -8,7 +10,7 @@
   shuffled = false;
 
   updateImage = function(pos) {
-    return document.getElementById("cell" + pos).src = "flower" + cells[pos] + ".png";
+    return document.getElementById("cell" + pos).src = "" + path + "images/flower" + cells[pos] + ".png";
   };
 
   col = function(pos) {
@@ -24,27 +26,23 @@
     return _ref = [cells[k], cells[j]], cells[j] = _ref[0], cells[k] = _ref[1], _ref;
   };
 
-  shuffle = function() {
-    var n, random, _i, _results;
-    _results = [];
-    for (n = _i = 0; _i <= 8; n = ++_i) {
-      random = Math.floor(Math.random() * 9);
-      swap(n, random);
-      if (random === gapLoc) {
-        _results.push(gapLoc = n);
-      } else if (n === gapLoc) {
-        _results.push(gapLoc = random);
-      } else {
-        _results.push(void 0);
-      }
+  shuffle = function(n) {
+    var random;
+    random = Math.floor(Math.random() * 9);
+    swap(n, random);
+    if (random === gapLoc) {
+      return gapLoc = n;
+    } else if (n === gapLoc) {
+      return gapLoc = random;
     }
-    return _results;
   };
 
   startGame = function() {
-    var c, _i;
-    shuffle();
-    for (c = _i = 0; _i <= 8; c = ++_i) {
+    var c, n, _i, _j;
+    for (n = _i = 0; _i <= 8; n = ++_i) {
+      shuffle(n);
+    }
+    for (c = _j = 0; _j <= 8; c = ++_j) {
       updateImage(c);
     }
     return shuffled = true;

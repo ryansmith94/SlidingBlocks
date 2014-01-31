@@ -1,5 +1,7 @@
 module.exports = function (grunt) {
     'use strict';
+    var cwd = 'src';
+    var buildDir = 'build';
 
     // Project configuration.
     grunt.initConfig({
@@ -8,9 +10,9 @@ module.exports = function (grunt) {
             build: {
                 files: [{
                     expand: true,
-                    cwd: '',
+                    cwd: cwd,
                     src: ['**/*.scss'],
-                    dest: '',
+                    dest: buildDir,
                     ext: '.css',
                     filter: function (filepath) {
                         var ignore = {
@@ -29,9 +31,9 @@ module.exports = function (grunt) {
             build: {
                 files: [{
                     expand: true,
-                    cwd: '',
+                    cwd: cwd,
                     src: ['**/*.jade'],
-                    dest: '',
+                    dest: buildDir,
                     ext: '.html'
                 }]
             },
@@ -40,30 +42,30 @@ module.exports = function (grunt) {
         coffee: {
             build: {
                 expand: true,
-                cwd: '',
+                cwd: cwd,
                 src: ['**/*.coffee'],
-                dest: '',
+                dest: buildDir,
                 ext: '.js'
             },
             all: {}
         },
         watch: {
             sass: {
-                files: ['**/*.scss'],
+                files: [cwd + '/**/*.scss'],
                 tasks: ['sass:build'],
                 options: {
                     spawn: false
                 }
             },
             jade: {
-                files: ['**/*.jade'],
+                files: [cwd + '/**/*.jade'],
                 tasks: ['jade:build'],
                 options: {
                     spawn: false
                 }
             },
             coffee: {
-                files: ['**/*.coffee'],
+                files: [cwd + '/**/*.coffee'],
                 tasks: ['coffee:build'],
                 options: {
                     spawn: false

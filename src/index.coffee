@@ -1,8 +1,9 @@
+path = '../'
 cells = [0..8]
 gapLoc = 8
 shuffled = false
 
-updateImage = (pos) -> document.getElementById("cell#{pos}").src = "flower#{cells[pos]}.png"
+updateImage = (pos) -> document.getElementById("cell#{pos}").src = "#{path}images/flower#{cells[pos]}.png"
 col = (pos) -> pos % 3
 row = (pos) -> (pos - col(pos)) / 3
 swap = (j, k) -> [cells[j], cells[k]] = [cells[k], cells[j]]
