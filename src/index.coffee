@@ -19,6 +19,7 @@ startGame = () ->
     shuffle(n) for n in [0..8]
     updateImage(c) for c in [0..8]
     shuffled = true
+    document.querySelector('.start').innerText = 'restart'
 
 canMoveTile = (cellNum) ->
     rowA = row(cellNum)

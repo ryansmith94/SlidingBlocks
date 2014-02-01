@@ -43,7 +43,8 @@
     for (c = _j = 0; _j <= 8; c = ++_j) {
       updateImage(c);
     }
-    return shuffled = true;
+    shuffled = true;
+    return document.querySelector('.start').innerText = 'restart';
   };
 
   canMoveTile = function(cellNum) {
