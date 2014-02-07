@@ -81,7 +81,10 @@ document.getElementById('changeButton').onclick = () ->
 
 document.getElementById('grid').onclick = (e) -> moveTile(Number(e.target.id.slice(4)))
 
-# Determine if the game has already started.
-if cells.join('') isnt '012345678'
+# Determine if the image is incorrect.
+if image isnt 0
     updateImage('hint', "images/#{images[image]}.png")
-    start()
+    updateCells()
+
+# Determine if the game has already started.
+if cells.join('') isnt '012345678' then start()

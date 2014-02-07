@@ -132,8 +132,12 @@
     return moveTile(Number(e.target.id.slice(4)));
   };
 
-  if (cells.join('') !== '012345678') {
+  if (image !== 0) {
     updateImage('hint', "images/" + images[image] + ".png");
+    updateCells();
+  }
+
+  if (cells.join('') !== '012345678') {
     start();
   }
 
