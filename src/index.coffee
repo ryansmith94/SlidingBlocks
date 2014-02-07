@@ -58,6 +58,7 @@ start = () ->
     updateCells()
     shuffled = true
     shuffleButton.innerText = 'reshuffle'
+    document.getElementById('instructions').innerText = 'Solve the puzzle by pressing on the tiles to recreate the original image'
 
 # Button event handlers.
 shuffleButton.onclick = () ->

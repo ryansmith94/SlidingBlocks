@@ -98,7 +98,8 @@
   start = function() {
     updateCells();
     shuffled = true;
-    return shuffleButton.innerText = 'reshuffle';
+    shuffleButton.innerText = 'reshuffle';
+    return document.getElementById('instructions').innerText = 'Solve the puzzle by pressing on the tiles to recreate the original image';
   };
 
   shuffleButton.onclick = function() {
