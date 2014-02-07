@@ -102,7 +102,7 @@
     return updateCells();
   };
 
-  document.querySelector('.grid').onclick = function(e) {
+  document.getElementById('grid').onclick = function(e) {
     return moveTile(Number(e.target.id.slice(4)));
   };
 

@@ -3,25 +3,11 @@ html {
 
 body {
   font-family: sans-serif;
-  max-width: 21rem;
   text-align: center;
-  margin: 1rem auto; }
+  margin: 0 auto;
+  padding: 1rem; }
 
-#hint {
-  margin-bottom: 1rem;
-  display: none; }
-
-.row {
-  width: 100%;
-  height: 7rem;
-  font-size: 0; }
-  .row .col {
-    width: 33%;
-    height: 100%;
-    display: inline-block;
-    cursor: pointer; }
-
-.button {
+.buttons .button {
   background-color: #c86464;
   width: auto;
   height: auto;
@@ -35,9 +21,24 @@ body {
   -ms-border-radius: 0.5rem;
   -o-border-radius: 0.5rem;
   border-radius: 0.5rem; }
-
-.button:hover {
+.buttons .button:hover {
   background-color: #b84141; }
+
+.puzzle #hint {
+  margin-bottom: 1rem;
+  display: none; }
+.puzzle #grid {
+  max-width: 21rem;
+  margin: 0 auto; }
+  .puzzle #grid .row {
+    width: 100%;
+    height: 7rem;
+    font-size: 0; }
+    .puzzle #grid .row .col {
+      width: 33%;
+      height: 100%;
+      display: inline-block;
+      cursor: pointer; }
 
 .github {
   text-decoration: none;
@@ -56,7 +57,7 @@ body {
   border-radius: 4rem; }
 
 @media (min-width: 600px) {
-  body {
+  .puzzle #grid {
     max-width: 27rem; }
-    body .row {
+    .puzzle #grid .row {
       height: 9rem; } }
