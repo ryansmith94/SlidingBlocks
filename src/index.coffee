@@ -1,10 +1,14 @@
 cells = [0..8]
 gapLoc = 8
 shuffled = false
+images = ['flower', 'lily', 'daffodils', 'dahlias', 'geranium', 'irises', 'poppies']
+image = 0
 startButton = document.getElementById('startButton')
 hintButton = document.getElementById('hintButton')
 
-updateImage = (pos) -> document.getElementById("cell#{pos}").src = "images/flower#{cells[pos]}.png"
+updateImage = (id, src) -> document.getElementById(id).src = src
+updateCell = (pos) -> updateImage("cell#{pos}", "images/#{images[image]}#{cells[pos]}.png")
+updateCells = () -> updateCell(c) for c in [0..8]
 col = (pos) -> pos % 3
 row = (pos) -> (pos - col(pos)) / 3
 swap = (j, k) -> [cells[j], cells[k]] = [cells[k], cells[j]]
@@ -33,7 +37,7 @@ moveTile = (cellNum) ->
 
 startButton.onclick = () ->
     shuffle(n) for n in [0..8]
-    updateImage(c) for c in [0..8]
+    updateCells()
     shuffled = true
     startButton.innerText = 'reshuffle'
 
@@ -45,5 +49,12 @@ hintButton.onclick = () ->
     else
         style.display = 'inline-block'
         hintButton.innerText = 'hide hint'
+
+document.getElementById('changeButton').onclick = () ->
+    cells = [0..8]
+    image = (image + 1) % images.length
+    updateImage('hint', "images/#{images[image]}.png")
+    updateCells()
+    startButton.innerText = 'shuffle'
 
 document.querySelector('.grid').onclick = (e) -> moveTile(Number(e.target.id.slice(4)))
