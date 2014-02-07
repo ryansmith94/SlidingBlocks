@@ -1,6 +1,11 @@
 #[Sliding Blocks](http://ryansmith94.github.io/SlidingBlocks)
 3x3 Sliding Blocks Puzzle. Created for HCI module at [Oxford Brookes University](brookes.ac.uk).
 
+## Try This!
+I can't seem to solve this (see link below), see if you can :)
+http://ryansmith94.github.io/SlidingBlocks/?cells=012385674&image=3
+
+
 ## Possible Solution
 Imagine the blocks are numbered 1-9 (from left to right, up and down).
 
