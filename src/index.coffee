@@ -50,8 +50,8 @@ canMoveTile = (cellNum) ->
 moveTile = (cellNum) ->
     if shuffled and canMoveTile(cellNum)
         swap(cellNum, gapLoc)
-        updateImage(cellNum)
-        updateImage(gapLoc)
+        updateCell(cellNum)
+        updateCell(gapLoc)
         gapLoc = cellNum
 
 start = () ->
