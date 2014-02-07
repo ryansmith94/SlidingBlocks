@@ -22,7 +22,7 @@ cells = (() ->
 gapLoc = 8
 shuffled = false
 images = ['flower', 'lily', 'daffodils', 'dahlias', 'geranium', 'irises', 'poppies']
-image = Number(params.image) || 0
+image = Number(params.image) or 0
 
 # Game functions.
 updateImage = (id, src) -> document.getElementById(id).src = src
