@@ -51,10 +51,8 @@ hintButton.onclick = () ->
         hintButton.innerText = 'hide hint'
 
 document.getElementById('changeButton').onclick = () ->
-    cells = [0..8]
     image = (image + 1) % images.length
     updateImage('hint', "images/#{images[image]}.png")
     updateCells()
-    startButton.innerText = 'shuffle'
 
 document.querySelector('.grid').onclick = (e) -> moveTile(Number(e.target.id.slice(4)))

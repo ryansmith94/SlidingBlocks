@@ -97,11 +97,9 @@
   };
 
   document.getElementById('changeButton').onclick = function() {
-    cells = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     image = (image + 1) % images.length;
     updateImage('hint', "images/" + images[image] + ".png");
-    updateCells();
-    return startButton.innerText = 'shuffle';
+    return updateCells();
   };
 
   document.querySelector('.grid').onclick = function(e) {
