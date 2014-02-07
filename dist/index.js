@@ -2,6 +2,7 @@
   var canMoveTile, cells, col, gapLoc, hintButton, image, images, moveTile, row, shuffle, shuffled, startButton, swap, updateCell, updateCells, updateImage;
 
   cells = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  shuffleButton = document.getElementById('shuffleButton');
 
   gapLoc = 8;
 
@@ -11,7 +12,6 @@
 
   image = 0;
 
-  startButton = document.getElementById('startButton');
 
   hintButton = document.getElementById('hintButton');
 

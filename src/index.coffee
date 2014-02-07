@@ -1,9 +1,9 @@
 cells = [0..8]
+shuffleButton = document.getElementById('shuffleButton')
 gapLoc = 8
 shuffled = false
 images = ['flower', 'lily', 'daffodils', 'dahlias', 'geranium', 'irises', 'poppies']
 image = 0
-startButton = document.getElementById('startButton')
 hintButton = document.getElementById('hintButton')
 
 updateImage = (id, src) -> document.getElementById(id).src = src
