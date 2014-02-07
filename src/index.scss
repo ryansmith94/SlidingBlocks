@@ -22,6 +22,11 @@ body {
 	margin: 1rem auto;
 }
 
+#hint {
+	margin-bottom: 1rem;
+	display: none;
+}
+
 .row {
 	width: 100%;
 	height: $smallSize;
@@ -34,7 +39,7 @@ body {
 	}
 }
 
-.start {
+.button {
 	background-color: $startColour;
 	width: auto;
 	height: auto;
@@ -46,7 +51,7 @@ body {
 	@include border-radius(0.5rem);
 }
 
-.start:hover {
+.button:hover {
 	background-color: darken($startColour, 10%);
 }
 

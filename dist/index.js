@@ -1,5 +1,5 @@
 (function() {
-  var canMoveTile, cells, col, gapLoc, moveTile, row, shuffle, shuffled, startGame, swap, updateImage;
+  var canMoveTile, cells, col, gapLoc, hintButton, image, images, moveTile, row, shuffle, shuffled, startButton, swap, updateCell, updateCells, updateImage;
 
   cells = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -7,8 +7,29 @@
 
   shuffled = false;
 
-  updateImage = function(pos) {
-    return document.getElementById("cell" + pos).src = "images/flower" + cells[pos] + ".png";
+  images = ['flower', 'lily', 'daffodils', 'dahlias', 'geranium', 'irises', 'poppies'];
+
+  image = 0;
+
+  startButton = document.getElementById('startButton');
+
+  hintButton = document.getElementById('hintButton');
+
+  updateImage = function(id, src) {
+    return document.getElementById(id).src = src;
+  };
+
+  updateCell = function(pos) {
+    return updateImage("cell" + pos, "images/" + images[image] + cells[pos] + ".png");
+  };
+
+  updateCells = function() {
+    var c, _i, _results;
+    _results = [];
+    for (c = _i = 0; _i <= 8; c = ++_i) {
+      _results.push(updateCell(c));
+    }
+    return _results;
   };
 
   col = function(pos) {
@@ -35,18 +56,6 @@
     }
   };
 
-  startGame = function() {
-    var c, n, _i, _j;
-    for (n = _i = 0; _i <= 8; n = ++_i) {
-      shuffle(n);
-    }
-    for (c = _j = 0; _j <= 8; c = ++_j) {
-      updateImage(c);
-    }
-    shuffled = true;
-    return document.querySelector('.start').innerText = 'restart';
-  };
-
   canMoveTile = function(cellNum) {
     var colA, colB, rowA, rowB;
     rowA = row(cellNum);
@@ -65,7 +74,35 @@
     }
   };
 
-  document.querySelector('.start').onclick = startGame;
+  startButton.onclick = function() {
+    var n, _i;
+    for (n = _i = 0; _i <= 8; n = ++_i) {
+      shuffle(n);
+    }
+    updateCells();
+    shuffled = true;
+    return startButton.innerText = 'reshuffle';
+  };
+
+  hintButton.onclick = function() {
+    var style;
+    style = document.getElementById('hint').style;
+    if (style.display) {
+      style.display = '';
+      return hintButton.innerText = 'show hint';
+    } else {
+      style.display = 'inline-block';
+      return hintButton.innerText = 'hide hint';
+    }
+  };
+
+  document.getElementById('changeButton').onclick = function() {
+    cells = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    image = (image + 1) % images.length;
+    updateImage('hint', "images/" + images[image] + ".png");
+    updateCells();
+    return startButton.innerText = 'shuffle';
+  };
 
   document.querySelector('.grid').onclick = function(e) {
     return moveTile(Number(e.target.id.slice(4)));
