@@ -87,4 +87,6 @@ if image isnt 0
     updateCells()
 
 # Determine if the game has already started.
-if cells.join('') isnt '012345678' then start()
+if cells.join('') isnt '012345678'
+    gapLoc = cells.indexOf('8')
+    start()

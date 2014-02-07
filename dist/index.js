@@ -138,6 +138,7 @@
   }
 
   if (cells.join('') !== '012345678') {
+    gapLoc = cells.indexOf('8');
     start();
   }
 
