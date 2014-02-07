@@ -89,8 +89,8 @@
   moveTile = function(cellNum) {
     if (shuffled && canMoveTile(cellNum)) {
       swap(cellNum, gapLoc);
-      updateImage(cellNum);
-      updateImage(gapLoc);
+      updateCell(cellNum);
+      updateCell(gapLoc);
       return gapLoc = cellNum;
     }
   };
