@@ -55,4 +55,4 @@ document.getElementById('changeButton').onclick = () ->
     updateImage('hint', "images/#{images[image]}.png")
     updateCells()
 
-document.querySelector('.grid').onclick = (e) -> moveTile(Number(e.target.id.slice(4)))
+document.getElementById('grid').onclick = (e) -> moveTile(Number(e.target.id.slice(4)))

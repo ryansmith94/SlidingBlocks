@@ -17,42 +17,50 @@ html {
 
 body {
 	font-family: sans-serif;
-	max-width: $smallSize * $columns;
 	text-align: center;
-	margin: 1rem auto;
+	margin: 0 auto;
+	padding: 1rem;
 }
 
-#hint {
-	margin-bottom: 1rem;
-	display: none;
-}
-
-.row {
-	width: 100%;
-	height: $smallSize;
-	font-size: 0;
-	.col {
-		width: 33%;
-		height: 100%;
+.buttons {
+	.button {
+		background-color: $startColour;
+		width: auto;
+		height: auto;
+		padding: 0.7rem 1.8rem;
+		color: white;
 		display: inline-block;
 		cursor: pointer;
+		margin-bottom: 1rem;
+		@include border-radius(0.5rem);
+	}
+
+	.button:hover {
+		background-color: darken($startColour, 10%);
 	}
 }
 
-.button {
-	background-color: $startColour;
-	width: auto;
-	height: auto;
-	padding: 0.7rem 1.8rem;
-	color: white;
-	display: inline-block;
-	cursor: pointer;
-	margin-bottom: 1rem;
-	@include border-radius(0.5rem);
-}
-
-.button:hover {
-	background-color: darken($startColour, 10%);
+.puzzle {
+	text-align: center;
+	#hint {
+		margin-bottom: 1rem;
+		display: none;
+	}
+	#grid {
+		max-width: $smallSize * $columns;
+		margin: 0 auto;
+		.row {
+			width: 100%;
+			height: $smallSize;
+			font-size: 0;
+			.col {
+				width: 33%;
+				height: 100%;
+				display: inline-block;
+				cursor: pointer;
+			}
+		}
+	}
 }
 
 .github {
@@ -70,10 +78,10 @@ body {
 }
 
 @media (min-width: 600px) {
-	body {
-		max-width: ($largeSize) * $columns;
+	.puzzle #grid {
+		max-width: $largeSize * $columns;
 		.row {
-			height: ($largeSize)
+			height: $largeSize
 		}
 	}
 }
