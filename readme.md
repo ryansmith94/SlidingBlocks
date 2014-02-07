@@ -1,7 +1,7 @@
 #[Sliding Blocks](http://ryansmith94.github.io/SlidingBlocks)
 3x3 Sliding Blocks Puzzle. Created for HCI module at [Oxford Brookes University](brookes.ac.uk).
 
-## Solution (Spolier Alert)
+## Possible Solution
 Imagine the blocks are numbered 1-9 (from left to right, up and down).
 
 ```
@@ -67,4 +67,4 @@ Now I can rotate the outer blocks by moving the empty block around the middle bl
 4    5    6
 7    8    9
 ```
-Problem solved.
+Problem solved (most of the time).
