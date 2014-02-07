@@ -1,11 +1,30 @@
-cells = [0..8]
+# Buttons (provides a shortcut and better performance).
 shuffleButton = document.getElementById('shuffleButton')
+hintButton = document.getElementById('hintButton')
+
+# Get params from URL.
+params = (() ->
+    paramsArray = window.location.href.split('?')[1]
+    paramsObj = {}
+    if paramsArray
+        paramsArray = paramsArray.split('&')
+        for param in paramsArray
+            param = param.split('=')
+            paramsObj[param[0]] = param[1]
+    paramsObj)()
+
+# Determine the starting position of the cells.
+cells = (() ->
+    if Number(params.cells) and params.cells.split('').sort().join('') is '012345678' then params.cells.split('') else false
+    )() or [0..8]
+
+# Game variables.
 gapLoc = 8
 shuffled = false
 images = ['flower', 'lily', 'daffodils', 'dahlias', 'geranium', 'irises', 'poppies']
-image = 0
-hintButton = document.getElementById('hintButton')
+image = Number(params.image) || 0
 
+# Game functions.
 updateImage = (id, src) -> document.getElementById(id).src = src
 updateCell = (pos) -> updateImage("cell#{pos}", "images/#{images[image]}#{cells[pos]}.png")
 updateCells = () -> updateCell(c) for c in [0..8]
@@ -35,11 +54,15 @@ moveTile = (cellNum) ->
         updateImage(gapLoc)
         gapLoc = cellNum
 
-startButton.onclick = () ->
-    shuffle(n) for n in [0..8]
+start = () ->
     updateCells()
     shuffled = true
-    startButton.innerText = 'reshuffle'
+    shuffleButton.innerText = 'reshuffle'
+
+# Button event handlers.
+shuffleButton.onclick = () ->
+    shuffle(n) for n in [0..8]
+    start()
 
 hintButton.onclick = () ->
     style = document.getElementById('hint').style
@@ -56,3 +79,8 @@ document.getElementById('changeButton').onclick = () ->
     updateCells()
 
 document.getElementById('grid').onclick = (e) -> moveTile(Number(e.target.id.slice(4)))
+
+# Determine if the game has already started.
+if cells.join('') isnt '012345678'
+    updateImage('hint', "images/#{images[image]}.png")
+    start()

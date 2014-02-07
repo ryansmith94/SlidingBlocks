@@ -1,8 +1,32 @@
 (function() {
-  var canMoveTile, cells, col, gapLoc, hintButton, image, images, moveTile, row, shuffle, shuffled, startButton, swap, updateCell, updateCells, updateImage;
+  var canMoveTile, cells, col, gapLoc, hintButton, image, images, moveTile, params, row, shuffle, shuffleButton, shuffled, start, swap, updateCell, updateCells, updateImage;
 
-  cells = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   shuffleButton = document.getElementById('shuffleButton');
+
+  hintButton = document.getElementById('hintButton');
+
+  params = (function() {
+    var param, paramsArray, paramsObj, _i, _len;
+    paramsArray = window.location.href.split('?')[1];
+    paramsObj = {};
+    if (paramsArray) {
+      paramsArray = paramsArray.split('&');
+      for (_i = 0, _len = paramsArray.length; _i < _len; _i++) {
+        param = paramsArray[_i];
+        param = param.split('=');
+        paramsObj[param[0]] = param[1];
+      }
+    }
+    return paramsObj;
+  })();
+
+  cells = (function() {
+    if (Number(params.cells) && params.cells.split('').sort().join('') === '012345678') {
+      return params.cells.split('');
+    } else {
+      return false;
+    }
+  })() || [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
   gapLoc = 8;
 
@@ -10,10 +34,7 @@
 
   images = ['flower', 'lily', 'daffodils', 'dahlias', 'geranium', 'irises', 'poppies'];
 
-  image = 0;
-
-
-  hintButton = document.getElementById('hintButton');
+  image = Number(params.image) || 0;
 
   updateImage = function(id, src) {
     return document.getElementById(id).src = src;
@@ -74,14 +95,18 @@
     }
   };
 
-  startButton.onclick = function() {
+  start = function() {
+    updateCells();
+    shuffled = true;
+    return shuffleButton.innerText = 'reshuffle';
+  };
+
+  shuffleButton.onclick = function() {
     var n, _i;
     for (n = _i = 0; _i <= 8; n = ++_i) {
       shuffle(n);
     }
-    updateCells();
-    shuffled = true;
-    return startButton.innerText = 'reshuffle';
+    return start();
   };
 
   hintButton.onclick = function() {
@@ -105,5 +130,10 @@
   document.getElementById('grid').onclick = function(e) {
     return moveTile(Number(e.target.id.slice(4)));
   };
+
+  if (cells.join('') !== '012345678') {
+    updateImage('hint', "images/" + images[image] + ".png");
+    start();
+  }
 
 }).call(this);
