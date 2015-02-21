@@ -8,3 +8,6 @@ license](https://gist.githubusercontent.com/ryansmith94/b947ee33d7bfffff9d16/raw
 ## Try This!
 I can't seem to solve this (see link below), see if you can :wink:   
 http://ryansmith94.github.io/SlidingBlocks/?cells=012385674&image=3
+
+## Newer version
+http://ryansmith94.github.io/react-blocks/src
